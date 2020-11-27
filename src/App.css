@@ -1,3 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
+}
+
+header {
+  height: 5vh;
+  margin: 1rem;
+}
+
+.select-data-container {
+  height: 5vh;
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-data-container button {
+  display: inline-block;
+}
+
+.map {
+  height: 82.5vh;
+  width: 100vw;
 }
