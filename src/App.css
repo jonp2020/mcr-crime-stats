@@ -29,3 +29,8 @@ header {
   height: 82.5vh;
   width: 100vw;
 }
+
+.location-marker {
+  font-size: 2rem;
+  color: #961515;
+}
