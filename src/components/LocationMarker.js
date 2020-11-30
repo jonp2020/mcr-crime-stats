@@ -1,9 +1,9 @@
 import React from "react";
 import { MdPinDrop } from "react-icons/md";
 
-const LocationMarker = () => {
+const LocationMarker = ({ lat, lng, key, onClick }) => {
   return (
-    <div className="location-marker">
+    <div className="location-marker" onClick={onClick}>
       <MdPinDrop />
     </div>
   );

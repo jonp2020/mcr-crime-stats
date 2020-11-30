@@ -22,7 +22,7 @@ const SelectData = () => {
       const data = await res.json();
       setReturnedData(data);
       setLoading(false);
-      // console.log(data);
+      console.log(data);
     };
     fetchStopData();
   }, [selectedYear, selectedMonth]);
