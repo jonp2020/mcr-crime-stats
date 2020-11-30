@@ -19,8 +19,6 @@ const Map = ({ center, crimeData }) => {
         lng={crime.location.longitude}
         key={i}
         onClick={() => {
-          console.log("clicked");
-
           setSelectedLocationInfo({
             crimeCategory: crime.category,
             location: crime.location.street.name,
@@ -33,7 +31,6 @@ const Map = ({ center, crimeData }) => {
   });
 
   const handleClick = (e) => {
-    console.log("here in handle click", e.target.className);
     if (
       e.target.className !== "location-info-box" &&
       selectedLocationInfo !== null
@@ -46,7 +43,7 @@ const Map = ({ center, crimeData }) => {
       <GoogleMapReact
         bootstrapURLKeys={{ key: `${process.env.REACT_APP_API_KEY}` }}
         defaultCenter={center}
-        defaultZoom={13}
+        defaultZoom={14}
       >
         {pinDrops}
       </GoogleMapReact>
@@ -67,5 +64,5 @@ Map.defaultProps = {
     lat: 53.4809634,
     lng: -2.2369427,
   },
-  zoom: 13,
+  zoom: 14,
 };

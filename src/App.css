@@ -7,27 +7,48 @@
 
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
-  height: 5vh;
-  margin: 1rem;
+  /* height: 5vh; */
+  margin: 0.5rem;
 }
 
 .select-data-container {
-  height: 5vh;
-  margin: 1rem;
+  /* height: 5vh; */
+  margin: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.select-data-container p {
+  margin: 0 0.5rem;
+}
+
 .select-data-container button {
   display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.2rem;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  background-color: rgb(226, 226, 231);
+  border: 1px solid #ccc9c9;
+}
+
+.select-data-container-pins-text {
+  padding-bottom: 0.2rem;
+  font-size: 0.8rem;
+}
+
+.date-picker {
+  margin-left: 2rem;
 }
 
 .map {
-  height: 82.5vh;
+  height: 81vh;
   width: 100vw;
 }
 
@@ -38,7 +59,7 @@ header {
 
 .location-info-box {
   position: absolute;
-  top: 120px;
+  top: 127px;
   right: 80px;
   width: 400px;
   min-height: 200px;
