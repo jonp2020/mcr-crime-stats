@@ -3,15 +3,21 @@ import { useState } from "react";
 import GoogleMapReact from "google-map-react";
 import LoacationMarker from "./LocationMarker";
 import LocationInfoBox from "./LocationInfoBox";
+import ShowLocalAreaGraph from "./ShowLocalAreaGraph";
 
 const Map = ({ center, crimeData }) => {
   const [selectedLocationInfo, setSelectedLocationInfo] = useState(null);
+  const [showLocalGraph, setShowLocalGraph] = useState(null);
   const crimeLocations = {};
 
   const pinDrops = crimeData.map((crime, i) => {
-    if (crimeLocations[crime.location.street.name]) {
+    if (crimeLocations[crime.location.street.id]) {
       crimeLocations[crime.location.street.name]++;
-    } else crimeLocations[crime.location.street.name] = 1;
+      crimeLocations[crime.location.street.id]++;
+    } else {
+      crimeLocations[crime.location.street.name] = 1;
+      crimeLocations[crime.location.street.id] = 1;
+    }
 
     return (
       <LoacationMarker
@@ -22,6 +28,7 @@ const Map = ({ center, crimeData }) => {
           setSelectedLocationInfo({
             crimeCategory: crime.category,
             location: crime.location.street.name,
+            locationId: crime.location.street.id,
             month: crime.month,
             crimeLocationData: crimeLocations,
           });
@@ -38,6 +45,7 @@ const Map = ({ center, crimeData }) => {
       setSelectedLocationInfo(null);
   };
 
+  console.log("showLocalGraph", showLocalGraph);
   return (
     <div className="map" onClick={handleClick} name="map">
       <GoogleMapReact
@@ -51,6 +59,13 @@ const Map = ({ center, crimeData }) => {
         <LocationInfoBox
           info={selectedLocationInfo}
           setSelectedLocationInfo={setSelectedLocationInfo}
+          setShowLocalGraph={setShowLocalGraph}
+        />
+      )}
+      {showLocalGraph && (
+        <ShowLocalAreaGraph
+          showLocalGraph={showLocalGraph}
+          crimeData={crimeData}
         />
       )}
     </div>

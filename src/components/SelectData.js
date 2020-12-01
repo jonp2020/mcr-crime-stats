@@ -22,8 +22,12 @@ const SelectData = () => {
 
       const data = await res.json();
       setReturnedData(data);
-      setLoading(false);
+
       console.log("data", data);
+      // if (data.length === 0) {
+      //   setSelectedMonth(selectedMonth - 1);
+      // }
+      setLoading(false);
     };
     fetchStopData();
   }, [selectedYear, selectedMonth]);
@@ -52,6 +56,7 @@ const SelectData = () => {
     "Novemeber",
     "December",
   ];
+  console.log("returned data", returnedData.length);
 
   return (
     <div>
@@ -72,9 +77,15 @@ const SelectData = () => {
         />
         <button onClick={handleClick}>Change date</button>
       </div>
-      <p className="select-data-container-pins-text">
-        Click on the pins on the map for more information
-      </p>
+      {returnedData.length === 0 ? (
+        <p className="select-data-container-pins-text">
+          No data available for the current selected month
+        </p>
+      ) : (
+        <p className="select-data-container-pins-text">
+          Click on the pins on the map for more information
+        </p>
+      )}
 
       {!loading ? <Map crimeData={returnedData} /> : <h1>Loading...</h1>}
     </div>

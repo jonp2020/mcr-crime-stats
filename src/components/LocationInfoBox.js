@@ -1,11 +1,17 @@
 import React from "react";
 
-const LocationInfoBox = ({ info }) => {
+const LocationInfoBox = ({
+  info,
+  setShowLocalGraph,
+  setSelectedLocationInfo,
+}) => {
   const reportedLocation = info.location;
+  const reportedLocationId = info.locationId;
   const numberOfCrimes = info.crimeLocationData[reportedLocation];
   const month = new Date(info.month);
   const fullMonth = month.toLocaleString("default", { month: "long" });
   const year = month.getFullYear();
+  console.log("info", info);
   return (
     <div className="location-info-box" name="location-info-box">
       <button
@@ -21,7 +27,14 @@ const LocationInfoBox = ({ info }) => {
         {numberOfCrimes === 1 ? "crime" : "crimes"} recorded at or near this
         location in {fullMonth}, {year}.
       </p>
-      <button className="location-info-box-more-info">More information</button>
+      <button
+        className="location-info-box-more-info"
+        onClick={() =>
+          setShowLocalGraph({ reportedLocationId, reportedLocation })
+        }
+      >
+        More information
+      </button>
     </div>
   );
 };

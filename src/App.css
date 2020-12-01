@@ -59,9 +59,10 @@ header {
 
 .location-info-box {
   position: absolute;
+
   top: 127px;
   right: 80px;
-  width: 400px;
+  width: 350px;
   min-height: 200px;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.6);
@@ -87,4 +88,22 @@ header {
 .location-info-box-more-info {
   margin-top: 1rem;
   padding: 0.2rem;
+}
+
+.show-local-area-graph-wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 127px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 500px;
+  min-height: 200px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+  font-size: 18px;
+  color: #fff;
 }

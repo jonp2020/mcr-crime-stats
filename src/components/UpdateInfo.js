@@ -36,6 +36,7 @@ const UpdateInfo = ({
             setHandleMonthChange(currentMonth);
             setHandleYearChange(currentYear);
             setStartDate(date);
+            // handleChange(currentMonth, currentYear);
           }}
           dateFormat="MM/yyyy"
           showMonthYearPicker
