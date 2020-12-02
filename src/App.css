@@ -12,12 +12,10 @@
 }
 
 header {
-  /* height: 5vh; */
   margin: 0.5rem;
 }
 
 .select-data-container {
-  /* height: 5vh; */
   margin: 0.5rem;
   display: flex;
   align-items: center;
@@ -28,7 +26,7 @@ header {
   margin: 0 0.5rem;
 }
 
-.select-data-container button {
+.select-data-date-btn {
   display: inline-block;
   margin-left: 0.5rem;
   padding: 0.2rem;
@@ -48,7 +46,7 @@ header {
 }
 
 .map {
-  height: 81vh;
+  height: 82vh;
   width: 100vw;
 }
 
@@ -59,11 +57,10 @@ header {
 
 .location-info-box {
   position: absolute;
-
   top: 127px;
   right: 80px;
-  width: 350px;
-  min-height: 200px;
+  width: 325px;
+  min-height: 150px;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 5px;
@@ -82,12 +79,22 @@ header {
 }
 
 .location-info-box h3 {
+  font-size: 1rem;
   padding: 0.5rem;
 }
 
-.location-info-box-more-info {
+.location-info-box p {
+  padding-top: 0.2rem;
+  font-size: 0.9rem;
+}
+
+.location-info-box-more-info-btn {
   margin-top: 1rem;
   padding: 0.2rem;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  background-color: rgb(226, 226, 231);
+  border: 1px solid #ccc9c9;
 }
 
 .show-local-area-graph-wrapper {
@@ -99,11 +106,35 @@ header {
   top: 127px;
   left: 50%;
   transform: translate(-50%, 0%);
-  width: 500px;
+  width: 600px;
   min-height: 200px;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.8);
   border-radius: 5px;
   font-size: 18px;
   color: #fff;
+}
+
+.show-local-area-graph-text {
+  padding-top: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.chart-and-legend-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vertical {
+  text-align: left;
+  color: white;
+}
+.rv-hint {
+  color: white;
+  top: 50%;
+  font-size: 0.8rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

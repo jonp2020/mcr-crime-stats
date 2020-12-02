@@ -15,6 +15,8 @@ const Styles = styled.div`
     width: 150px;
   }
 `;
+const currentDate = new Date();
+const currentDateString = `${currentDate.getFullYear()}-${currentDate.getMonth()}-${currentDate.getDate()}`;
 
 const UpdateInfo = ({
   selectedYear,
@@ -40,6 +42,7 @@ const UpdateInfo = ({
           }}
           dateFormat="MM/yyyy"
           showMonthYearPicker
+          maxDate={new Date(currentDateString)}
         />
       </Styles>
     </div>

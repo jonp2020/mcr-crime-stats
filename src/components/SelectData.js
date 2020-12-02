@@ -12,30 +12,27 @@ const SelectData = () => {
   const [returnedData, setReturnedData] = useState([]);
   const [handleMonthChange, setHandleMonthChange] = useState(null);
   const [handleYearChange, setHandleYearChange] = useState(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchStopData = async () => {
       setLoading(true);
-      const res = await fetch(
-        `https://data.police.uk/api/crimes-street/all-crime?lat=53.480963&lng=-2.2369427&date=${selectedYear}-${selectedMonth}`
-      );
+      setError(false);
+      try {
+        const res = await fetch(
+          `https://data.police.uk/api/crimes-street/all-crime?lat=53.480963&lng=-2.2369427&date=${selectedYear}-${selectedMonth}`
+        );
+        const data = await res.json();
+        setReturnedData(data);
+      } catch (error) {
+        console.log("error", error);
+        setError(true);
+      }
 
-      const data = await res.json();
-      setReturnedData(data);
-
-      console.log("data", data);
-      // if (data.length === 0) {
-      //   setSelectedMonth(selectedMonth - 1);
-      // }
       setLoading(false);
     };
     fetchStopData();
   }, [selectedYear, selectedMonth]);
-
-  // const handleChange = (month, year) => {
-  //   // console.log("i;ve been clicked");
-
-  // };
 
   const handleClick = (e) => {
     setSelectedMonth(handleMonthChange);
@@ -56,7 +53,6 @@ const SelectData = () => {
     "Novemeber",
     "December",
   ];
-  console.log("returned data", returnedData.length);
 
   return (
     <div>
@@ -73,11 +69,12 @@ const SelectData = () => {
           selectedMonth={selectedMonth}
           setHandleMonthChange={setHandleMonthChange}
           setHandleYearChange={setHandleYearChange}
-          // handleChange={handleChange}
         />
-        <button onClick={handleClick}>Change date</button>
+        <button className="select-data-date-btn" onClick={handleClick}>
+          Change date
+        </button>
       </div>
-      {returnedData.length === 0 ? (
+      {error || returnedData.length === 0 ? (
         <p className="select-data-container-pins-text">
           No data available for the current selected month
         </p>

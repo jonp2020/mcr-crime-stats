@@ -43,9 +43,18 @@ const Map = ({ center, crimeData }) => {
       selectedLocationInfo !== null
     )
       setSelectedLocationInfo(null);
+
+    if (
+      e.target.className !== "show-local-area-graph-wrapper" &&
+      showLocalGraph !== null
+    )
+      setShowLocalGraph(null);
   };
 
-  console.log("showLocalGraph", showLocalGraph);
+  // const handleApiLoaded = (map, maps) => {
+  //   const myOptions = { clickableIcons: false };
+  // };
+
   return (
     <div className="map" onClick={handleClick} name="map">
       <GoogleMapReact
@@ -64,6 +73,7 @@ const Map = ({ center, crimeData }) => {
       )}
       {showLocalGraph && (
         <ShowLocalAreaGraph
+          info={selectedLocationInfo}
           showLocalGraph={showLocalGraph}
           crimeData={crimeData}
         />

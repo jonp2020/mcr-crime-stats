@@ -11,7 +11,6 @@ const LocationInfoBox = ({
   const month = new Date(info.month);
   const fullMonth = month.toLocaleString("default", { month: "long" });
   const year = month.getFullYear();
-  console.log("info", info);
   return (
     <div className="location-info-box" name="location-info-box">
       <button
@@ -21,16 +20,21 @@ const LocationInfoBox = ({
         x
       </button>
       <h3>{reportedLocation}</h3>
-      <p>
+      <p className="location-info-box-text">
         The data shows that there {numberOfCrimes === 1 ? "was" : "were"}{" "}
         {numberOfCrimes} street level{" "}
         {numberOfCrimes === 1 ? "crime" : "crimes"} recorded at or near this
         location in {fullMonth}, {year}.
       </p>
       <button
-        className="location-info-box-more-info"
+        className="location-info-box-more-info-btn"
         onClick={() =>
-          setShowLocalGraph({ reportedLocationId, reportedLocation })
+          setShowLocalGraph({
+            reportedLocationId,
+            reportedLocation,
+            fullMonth,
+            year,
+          })
         }
       >
         More information
