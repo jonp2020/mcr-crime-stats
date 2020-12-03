@@ -1,7 +1,12 @@
 import { useState } from "react";
+import { MdTranslate } from "react-icons/md";
 import { RadialChart, DiscreteColorLegend, Hint } from "react-vis";
 
-const ShowLocalAreaGraph = ({ showLocalGraph, crimeData }) => {
+const ShowLocalAreaGraph = ({
+  showLocalGraph,
+  crimeData,
+  handleCloseClick,
+}) => {
   const [crimeValue, setCrimeValue] = useState(false);
 
   const localData = crimeData.filter((crime) =>
@@ -73,6 +78,12 @@ const ShowLocalAreaGraph = ({ showLocalGraph, crimeData }) => {
 
   return (
     <div className="show-local-area-graph-wrapper">
+      <button
+        className="show-local-area-graph-close-btn"
+        onClick={handleCloseClick}
+      >
+        x
+      </button>
       <h3 className="show-local-area-graph-header">
         {showLocalGraph.reportedLocation}
       </h3>
@@ -84,13 +95,15 @@ const ShowLocalAreaGraph = ({ showLocalGraph, crimeData }) => {
           ? "The chart below shows the category of the crime that was reported."
           : "The chart below shows the categories of the crimes that were reported and how many were reported for each."}
       </p>
-      <div className="chart-and-legend-container">
+      <div className="chart-and-legend-container" onClick={handleCloseClick}>
         <RadialChart
-          innerRadius={70}
-          radius={100}
+          innerRadius={75}
+          radius={90}
           data={crimeInfoData}
-          width={300}
-          height={300}
+          width={250}
+          height={250}
+          style={{}}
+          className="radial-chart"
           padAngle={0.04}
           onValueMouseOver={(v) => {
             const crime = v.label;
@@ -108,15 +121,17 @@ const ShowLocalAreaGraph = ({ showLocalGraph, crimeData }) => {
             </Hint>
           )}
         </RadialChart>
-        <DiscreteColorLegend
-          height={200}
-          width={300}
-          items={crimeItems.map((d) => {
-            const title = d.label;
-            const color = d.color;
-            return { title, color };
-          })}
-        />
+        <div className="legend-container">
+          <DiscreteColorLegend
+            height={200}
+            width={300}
+            items={crimeItems.map((d) => {
+              const title = d.label;
+              const color = d.color;
+              return { title, color };
+            })}
+          />
+        </div>
       </div>
     </div>
   );

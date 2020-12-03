@@ -45,15 +45,42 @@ const Map = ({ center, crimeData }) => {
       setSelectedLocationInfo(null);
 
     if (
+      e.target.classList.contains("rv-xy-plot__series") ||
+      e.target.classList.contains("rv-xy-plot__inner")
+    ) {
+      return;
+    }
+
+    if (
+      e.target.className !== "show-local-area-graph-header" &&
+      showLocalGraph !== null
+    ) {
+      setShowLocalGraph(null);
+    }
+    if (
+      e.target.className !== "show-local-area-graph-text" &&
+      showLocalGraph !== null
+    ) {
+      setShowLocalGraph(null);
+    }
+    if (
       e.target.className !== "show-local-area-graph-wrapper" &&
       showLocalGraph !== null
-    )
+    ) {
       setShowLocalGraph(null);
+    }
   };
 
-  // const handleApiLoaded = (map, maps) => {
-  //   const myOptions = { clickableIcons: false };
-  // };
+  const handleCloseClick = (e) => {
+    if (e.target.className === "show-local-area-graph-close-btn") {
+      setShowLocalGraph(null);
+    }
+  };
+
+  const mapStyles = {
+    width: "100%",
+    height: "100%",
+  };
 
   return (
     <div className="map" onClick={handleClick} name="map">
@@ -69,6 +96,7 @@ const Map = ({ center, crimeData }) => {
           info={selectedLocationInfo}
           setSelectedLocationInfo={setSelectedLocationInfo}
           setShowLocalGraph={setShowLocalGraph}
+          style={mapStyles}
         />
       )}
       {showLocalGraph && (
@@ -76,6 +104,7 @@ const Map = ({ center, crimeData }) => {
           info={selectedLocationInfo}
           showLocalGraph={showLocalGraph}
           crimeData={crimeData}
+          handleCloseClick={handleCloseClick}
         />
       )}
     </div>

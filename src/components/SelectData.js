@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Map from "./Map";
 import UpdateInfo from "./UpdateInfo";
+import Loader from "./Loader";
 
 const SelectData = () => {
   const currentDate = new Date();
@@ -64,15 +65,17 @@ const SelectData = () => {
             {months[selectedMonth - 1]} in {selectedYear}
           </span>
         </p>
-        <UpdateInfo
-          selectedYear={selectedYear}
-          selectedMonth={selectedMonth}
-          setHandleMonthChange={setHandleMonthChange}
-          setHandleYearChange={setHandleYearChange}
-        />
-        <button className="select-data-date-btn" onClick={handleClick}>
-          Change date
-        </button>
+        <div className="date-picker-and-btn-wrapper">
+          <UpdateInfo
+            selectedYear={selectedYear}
+            selectedMonth={selectedMonth}
+            setHandleMonthChange={setHandleMonthChange}
+            setHandleYearChange={setHandleYearChange}
+          />
+          <button className="select-data-date-btn" onClick={handleClick}>
+            Change date
+          </button>
+        </div>
       </div>
       {error || returnedData.length === 0 ? (
         <p className="select-data-container-pins-text">
@@ -84,7 +87,7 @@ const SelectData = () => {
         </p>
       )}
 
-      {!loading ? <Map crimeData={returnedData} /> : <h1>Loading...</h1>}
+      {!loading ? <Map crimeData={returnedData} /> : <Loader />}
     </div>
   );
 };
