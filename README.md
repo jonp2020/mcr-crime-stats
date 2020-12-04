@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# MCR Crime Data
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This web application displays data about crimes reported in the city centre of Manchester, UK. It uses data about street level crime from the UK Police API and plots the locations where the crime(s) were reported on a Google Map of the centre of Manchester (For this app I've used the longitude and latitude of Piccadilly Gardens to denote central Manchester). Users can select the month / year to see the locations of reported crimes as pins on the map. Users can then click on the pins to see a chart breaking down the categories of crimes reported at that location and how many of each were reported.
 
-## Available Scripts
+This is a React application that uses Google Map React to display a map of central Manchester. It uses Uber's React-Vis to make the chart that displays a breakdown of crime data according to the selected month and area.
 
-In the project directory, you can run:
+NB. Crimes that have been reported more recently may not yet have been added to the Police API that the web app makes a request to. Therefore, the user may find that the app shows far fewer crimes reported in the most recent month(s) that they are using the app compared to when they select a month from the previous year. Therefore the app couldn't be used to show whether there had been an increase or decline in crime. Rather it shows the number of crimes and their categories that have been added to the Police API.
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Follow the instructions below to get a local version up and running.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Installation
 
-### `npm test`
+1. To begin with, (fork and) clone this repo.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+$ git clone https://github.com/jonp2020/mcr-crime-stats.git
+```
 
-### `npm run build`
+2. Navigate into the directory and install the required dependencies.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+$ cd mcr-crime-stats
+$ npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Next you'll need to get a Google Maps API key. Head over to [Google's cloud platform](https://cloud.google.com/maps-platform) and sign up /sign in to create an API key.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[This link to Google's developer page](https://developers.google.com/maps/documentation/javascript/get-api-key) has a nice step by step walk through to get an API key.
 
-### `npm run eject`
+4. Once you've got API key, create a .env file in the root directory of the app. Add your API key here by typing in the following:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+REACT_APP_MAP=PASTE_YOUR_API_KEY_HERE
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. Get the app running on your machine by typing the following into your terminal:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+$ npm start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+6. A tab will be opened in your browser at the address **localhost:3000**.
 
-## Learn More
+7. Enjoy!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Built Using
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Create React App
+- React
+- Google Map API
+- Google-Map-React
+- React-Vis
+- Framer-motion
