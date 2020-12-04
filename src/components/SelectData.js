@@ -26,7 +26,6 @@ const SelectData = () => {
         const data = await res.json();
         setReturnedData(data);
       } catch (error) {
-        console.log("error", error);
         setError(true);
       }
 

@@ -27,7 +27,6 @@ const UpdateInfo = ({
 }) => {
   const monthAndYear = parseISO(`${selectedYear}-${selectedMonth}`);
   const [startDate, setStartDate] = useState(new Date(monthAndYear));
-  // console.log("startDate", startDate);
   return (
     <div className="date-picker">
       <Styles>
@@ -39,7 +38,6 @@ const UpdateInfo = ({
             setHandleMonthChange(currentMonth);
             setHandleYearChange(currentYear);
             setStartDate(date);
-            // handleChange(currentMonth, currentYear);
           }}
           dateFormat="MM/yyyy"
           showMonthYearPicker

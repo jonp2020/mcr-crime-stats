@@ -77,12 +77,6 @@ const Map = ({ center, crimeData }) => {
     }
   };
 
-  const handleApiLoaded = (map, maps, places) => {
-    console.log("map", map);
-    console.log("maps", maps);
-    console.log("places", places);
-  };
-
   const mapStyles = {
     width: "100%",
     height: "100%",

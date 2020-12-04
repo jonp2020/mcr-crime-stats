@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { MdTranslate } from "react-icons/md";
 import { RadialChart, DiscreteColorLegend, Hint } from "react-vis";
 import { motion } from "framer-motion";
 

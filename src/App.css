@@ -241,24 +241,6 @@ header {
   }
 }
 
-/* @media only screen and (max-width: 480px) {
-  .location-info-box {
-    top: 45%;
-  }
-} */
-
-/* @media only screen and (max-width: 440px) {
-  .location-info-box {
-    top: 40%;
-  }
-} */
-
-/* @media only screen and (max-width: 380px) {
-  .location-info-box {
-    top: 40.5%;
-  }
-} */
-
 @media only screen and (max-width: 360px) {
   .location-info-box {
     width: 200px;
@@ -321,7 +303,6 @@ header {
 .chart-and-legend-container {
   display: flex;
   align-items: center;
-  /* justify-content: center; */
 }
 
 .vertical {
