@@ -17,8 +17,9 @@ header {
 
 .header-border {
   width: 90%;
-  margin-top: 0.5rem;
+  margin: 0.5rem auto auto auto;
   border-bottom: 1px solid #c4c4d6;
+  text-align: center;
 }
 
 .select-data-container {
