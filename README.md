@@ -1,10 +1,12 @@
-# MCR Crime Data
+# MCR Crime Stats
 
 This web application displays data about crimes reported in the city centre of Manchester, UK. It uses data about street level crime from the UK Police API and plots the locations where the crime(s) were reported on a Google Map of the centre of Manchester (For this app I've used the longitude and latitude of Piccadilly Gardens to denote central Manchester). Users can select the month / year to see the locations of reported crimes as pins on the map. Users can then click on the pins to see a chart breaking down the categories of crimes reported at that location and how many of each were reported.
 
-This is a React application that uses Google Map React to display a map of central Manchester. It uses Uber's React-Vis to make the chart that displays a breakdown of crime data according to the selected month and area.
+This is a React application that uses Google Map React to display a map of central Manchester. I have used a free Google API key so the map has a watermark that states 'For development purposes only'. The user will also need to close a pop up box from Google related to this. The app uses Uber's React-Vis to make the chart that displays a breakdown of crime data according to the selected month and area.
 
-NB. Crimes that have been reported more recently may not yet have been added to the Police API that the web app makes a request to. Therefore, the user may find that the app shows far fewer crimes reported in the most recent month(s) that they are using the app compared to when they select a month from the previous year. Therefore the app couldn't be used to show whether there had been an increase or decline in crime. Rather it shows the number of crimes and their categories that have been added to the Police API.
+A hosted version of the application can be found on Netlify [here](https://mcr-crime-stats.netlify.app/).
+
+N.B. Crimes that have been reported more recently may not yet have been added to the Police API that the web app makes a request to. Therefore, the user may find that the app shows far fewer crimes reported in the most recent month(s) that they are using the app compared to when they select a month from the previous year. Therefore the app couldn't be used to show whether there had been an increase or decline in crime. Rather it shows the number of crimes and their categories that have been added to the Police API.
 
 ## Getting Started
 
@@ -53,3 +55,4 @@ $ npm start
 - Google-Map-React
 - React-Vis
 - Framer-motion
+- React Datepicker
