@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const LocationInfoBox = ({
   info,
@@ -12,7 +13,12 @@ const LocationInfoBox = ({
   const fullMonth = month.toLocaleString("default", { month: "long" });
   const year = month.getFullYear();
   return (
-    <div className="location-info-box" name="location-info-box">
+    <motion.div
+      className="location-info-box"
+      name="location-info-box"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
       <button
         className="location-info-box-btn-close"
         name="location-info-box-btn"
@@ -39,7 +45,7 @@ const LocationInfoBox = ({
       >
         More information
       </button>
-    </div>
+    </motion.div>
   );
 };
 

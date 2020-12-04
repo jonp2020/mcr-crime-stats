@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { MdTranslate } from "react-icons/md";
 import { RadialChart, DiscreteColorLegend, Hint } from "react-vis";
+import { motion } from "framer-motion";
 
 const ShowLocalAreaGraph = ({
   showLocalGraph,
@@ -77,7 +78,11 @@ const ShowLocalAreaGraph = ({
   });
 
   return (
-    <div className="show-local-area-graph-wrapper">
+    <motion.div
+      className="show-local-area-graph-wrapper"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
       <button
         className="show-local-area-graph-close-btn"
         onClick={handleCloseClick}
@@ -133,7 +138,7 @@ const ShowLocalAreaGraph = ({
           />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

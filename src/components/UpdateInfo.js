@@ -9,6 +9,7 @@ const Styles = styled.div`
   .react-datepicker__input-container input {
     width: 75px;
     text-align: center;
+    font-size: 16px;
   }
   .react-datepicker__month-wrapper {
     display: flex;

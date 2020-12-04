@@ -77,17 +77,31 @@ const Map = ({ center, crimeData }) => {
     }
   };
 
+  const handleApiLoaded = (map, maps, places) => {
+    console.log("map", map);
+    console.log("maps", maps);
+    console.log("places", places);
+  };
+
   const mapStyles = {
     width: "100%",
     height: "100%",
   };
 
+  const createMapOptions = (maps) => {
+    return {
+      clickableIcons: false,
+    };
+  };
+
   return (
     <div className="map" onClick={handleClick} name="map">
       <GoogleMapReact
+        options={createMapOptions}
         bootstrapURLKeys={{ key: `${process.env.REACT_APP_API_KEY}` }}
         defaultCenter={center}
         defaultZoom={14}
+        yesIWantToUseGoogleMapApiInternals
       >
         {pinDrops}
       </GoogleMapReact>
