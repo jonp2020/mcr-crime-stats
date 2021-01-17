@@ -6,10 +6,10 @@ import Loader from "./Loader";
 const SelectData = () => {
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
-  const currentMonth = currentDate.getMonth() + 1;
+  const currentMonth = ("0" + (currentDate.getMonth() + 1)).slice(-2);
   const [loading, setLoading] = useState(true);
   const [selectedYear, setSelectedYear] = useState(currentYear);
-  const [selectedMonth, setSelectedMonth] = useState(currentMonth - 1);
+  const [selectedMonth, setSelectedMonth] = useState(currentMonth);
   const [returnedData, setReturnedData] = useState([]);
   const [handleMonthChange, setHandleMonthChange] = useState(null);
   const [handleYearChange, setHandleYearChange] = useState(null);

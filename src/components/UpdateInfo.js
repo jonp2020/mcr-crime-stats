@@ -17,7 +17,10 @@ const Styles = styled.div`
   }
 `;
 const currentDate = new Date();
-const currentDateString = `${currentDate.getFullYear()}-${currentDate.getMonth()}-${currentDate.getDate()}`;
+
+const month = ("0" + (currentDate.getMonth() + 1)).slice(-2);
+const date = ("0" + currentDate.getDate()).slice(-2);
+const currentDateString = `${currentDate.getFullYear()}-${month}-${date}`;
 
 const UpdateInfo = ({
   selectedYear,
@@ -27,6 +30,7 @@ const UpdateInfo = ({
 }) => {
   const monthAndYear = parseISO(`${selectedYear}-${selectedMonth}`);
   const [startDate, setStartDate] = useState(new Date(monthAndYear));
+
   return (
     <div className="date-picker">
       <Styles>
